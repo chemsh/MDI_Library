@@ -75,7 +75,8 @@ jobs:
           echo "======= ls"
           ls
           echo "======= packages_loc"
-          set PACKLOC=`python siteloc.py`
+          echo '##vso[task.setvariable variable=PACKLOC]`python siteloc.py`'
+          set PACKLOC=$(python siteloc.py)
           echo $PACKLOC
           echo %PACKLOC%
           mkdir build & cd build
