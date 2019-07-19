@@ -69,14 +69,18 @@ jobs:
         displayName: "Install LLVM"
 
 #                -DCMAKE_INSTALL_PREFIX=../install ^
+#          packages_loc=`python -c "if True: ^
+#    from distutils import sysconfig as sc ^
+#    print(sc.get_python_lib(prefix='', plat_specific=True))"`
       # Configure
       - script: |
           setlocal EnableDelayedExpansion
           call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
+	  echo "======= ls"
+	  ls
+	  echo "======= packages_loc"
+	  packages_loc=`python siteloc.py`
           mkdir build & cd build
-          packages_loc=`python -c "if True: ^
-    from distutils import sysconfig as sc ^
-    print(sc.get_python_lib(prefix='', plat_specific=True))"`
           echo "================="
           echo $packages_loc
           mkdir ${packages_loc}/mdi
