@@ -74,8 +74,8 @@ jobs:
           setlocal EnableDelayedExpansion
           call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
           mkdir build & cd build
-          packages_loc=`python -c "if True:
-    from distutils import sysconfig as sc
+          packages_loc=`python -c "if True: ^
+    from distutils import sysconfig as sc ^
     print(sc.get_python_lib(prefix='', plat_specific=True))"`
           echo "================="
           echo $packages_loc
