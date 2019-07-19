@@ -94,10 +94,12 @@ jobs:
           cd $(Build.BinariesDirectory)
           echo "======= PACKLOC"
           echo %PACKLOC%
+          mkdir %PACKLOC%/mdi
+          ls %PACKLOC%
           mkdir build & cd build
           cmake -G Ninja ^
                 -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% ^
-                -DCMAKE_INSTALL_PREFIX=../install ^
+                -DCMAKE_INSTALL_PREFIX=%PACKLOC%/mdi ^
                 -DCMAKE_C_COMPILER=clang-cl ^
                 -DCMAKE_CXX_COMPILER=clang-cl ^
                 -Dlanguage=Python ^
