@@ -93,8 +93,10 @@ jobs:
           set /p PACKLOC= < site_output
           cd $(Build.BinariesDirectory)
           echo "======= PACKLOC"
+          set PACKLOC=\%PACKLOC%
           echo %PACKLOC%
           mkdir %PACKLOC%/mdi
+          echo "CONTENTS"
           ls %PACKLOC%
           mkdir build & cd build
           cmake -G Ninja ^
