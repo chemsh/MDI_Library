@@ -137,6 +137,6 @@ jobs:
       - script: |
           call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
           cd MDI_Library
-          python mdi_mpi4py.py
+          python -c "import mdi"
         displayName: "Test Installed MPI4PY"
-        workingDirectory: $(Build.BinariesDirectory)/install/lib
+        workingDirectory: $(Build.BinariesDirectory)
