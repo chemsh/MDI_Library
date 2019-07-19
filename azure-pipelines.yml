@@ -79,6 +79,15 @@ jobs:
           set /p PACKLOC= < site_output
           echo "======= PACKLOC"
           echo %PACKLOC%
+        displayName: "Get the Site Packages Directory"
+        workingDirectory: $(Build.SourcesDirectory)
+
+      # Configure
+      - script: |
+          setlocal EnableDelayedExpansion
+          call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
+          echo "======= PACKLOC"
+          echo %PACKLOC%
           mkdir build & cd build
           cmake -G Ninja ^
                 -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% ^
